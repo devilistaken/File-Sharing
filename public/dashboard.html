@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>One-Off · Your links</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Instrument+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <span data-logo></span>
+    <div class="who">
+      <span id="user-email"></span>
+      <button class="btn small light" id="logout" type="button">Log out</button>
+    </div>
+  </header>
+
+  <main class="dash">
+    <!-- ============ Composer ============ -->
+    <section class="card composer" aria-labelledby="composer-title">
+      <h1 id="composer-title">Light a new fuse</h1>
+
+      <form id="upload-form" novalidate>
+        <label class="drop" id="drop">
+          <input type="file" id="file" accept=".png,.jpg,.jpeg,.gif,.pdf,.txt,.zip,.docx,.xlsx,.pptx">
+          <strong id="drop-title">Drop a file here</strong>
+          <small id="drop-sub">or click to browse. Up to 10 MB.</small>
+        </label>
+
+        
+  <fieldset>
+    <span class="legend">Burns after</span>
+    <div class="expiry-slider-wrap">
+      <div class="expiry-display">
+        <span id="expiry-display">1 minute</span>
+      </div>
+
+      <input
+        type="range"
+        id="expiry-slider"
+        min="1"
+        max="100"
+        step="1"
+        value="1"
+        aria-label="Link expiry time"
+      />
+
+      <div class="expiry-range-labels">
+        <span>1 min</span>
+        <span>3 days</span>
+      </div>
+
+      <input type="hidden" name="expiry" id="expiry-value" value="1" />
+    </div>
+  </fieldset>
+
+
+        <fieldset>
+          <span class="legend">Or sooner, after this many downloads</span>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="limit" value="1" checked><span>1</span></label>
+            <label class="chip"><input type="radio" name="limit" value="3"><span>3</span></label>
+            <label class="chip"><input type="radio" name="limit" value="5"><span>5</span></label>
+            <label class="chip"><input type="radio" name="limit" value="10"><span>10</span></label>
+            <label class="chip"><input type="radio" name="limit" value="0"><span>No limit</span></label>
+          </div>
+        </fieldset>
+
+        <div class="progress" id="progress" hidden><div></div></div>
+        <p class="form-msg" id="upload-msg" role="alert"></p>
+        <button class="btn big block" id="upload-btn" type="submit">Create link</button>
+      </form>
+
+      <div class="meter">
+        <div class="meter-top"><span>Storage</span><span id="quota-text"></span></div>
+        <div class="meter-track" id="meter-track" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- ============ Ticket list ============ -->
+    <section aria-labelledby="vault-title">
+      <div class="vault-head">
+        <h2 id="vault-title">Your links</h2>
+        <p id="count"></p>
+      </div>
+      <div class="tickets" id="tickets"></div>
+      <div class="empty" id="empty" hidden>
+        <h3>Nothing burning yet</h3>
+        <p>Drop a file on the left and your first link shows up here.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ Link dialog ============ -->
+  <dialog id="link-dialog" aria-labelledby="dlg-title">
+    <h2 id="dlg-title">Your link is live</h2>
+    <p id="dlg-sub"></p>
+    <div class="link-row">
+      <input class="input" id="dlg-link" readonly aria-label="Shareable link">
+      <button class="btn sun" id="dlg-copy" type="button">Copy</button>
+    </div>
+    <div class="actions"><button class="btn light" id="dlg-close" type="button">Done</button></div>
+  </dialog>
+
+  <script src="js/config.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

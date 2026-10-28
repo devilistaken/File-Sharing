@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>One-Off · Send it once. Then it's gone.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Instrument+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar"><span data-logo></span></header>
+
+  <main class="landing">
+    <section class="hero">
+      <h1>Send it once.<span class="gone">Then it's gone.</span></h1>
+      <p class="lead">Share a file through a private link that burns itself after a set number of downloads or a set amount of time. No account needed to receive it.</p>
+
+      <!-- Live demo of the idea: the fuse burns down, the ticket vanishes, repeat -->
+      <article class="ticket demo-ticket" aria-hidden="true">
+        <div class="ticket-main">
+          <div class="ext ext-pdf">pdf</div>
+          <div class="ticket-info">
+            <h3 class="ticket-name">exam-answers-final.pdf</h3>
+            <div class="fuse"><div class="fuse-bar"><span class="spark"></span></div></div>
+            <p class="fuse-text">Burning down…</p>
+          </div>
+        </div>
+        <div class="ticket-stub">
+          <div class="pips"><span class="pip"></span></div>
+          <p class="stub-label">1 download left</p>
+        </div>
+      </article>
+
+      <ul class="how">
+        <li>Upload a file</li>
+        <li>Pick a timer and a download limit</li>
+        <li>Share the link</li>
+      </ul>
+    </section>
+
+    <section class="card auth-card" aria-labelledby="auth-title">
+      <h2 id="auth-title">Log in</h2>
+      <p class="sub" id="auth-sub">Welcome back. Your links are waiting.</p>
+
+      <div class="tabs" role="tablist">
+        <button type="button" role="tab" id="tab-login" aria-selected="true">Log in</button>
+        <button type="button" role="tab" id="tab-register" aria-selected="false">Create account</button>
+      </div>
+
+      <form id="auth-form" novalidate>
+        <div class="field">
+          <label for="email">Email</label>
+          <input class="input" id="email" type="email" autocomplete="email" placeholder="you@college.edu" required>
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <div class="pw-wrap">
+            <input class="input" id="password" type="password" autocomplete="current-password" placeholder="At least 8 characters" minlength="8" required>
+            <button type="button" class="pw-toggle" id="pw-toggle" aria-label="Show password">Show</button>
+          </div>
+        </div>
+        <p class="form-msg" id="msg" role="alert"></p>
+        <button class="btn big block" id="submit" type="submit">Log in</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>
